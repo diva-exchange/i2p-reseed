@@ -21,10 +21,7 @@ RUN apk --no-cache --virtual build-dependendencies add \
   && rm -rf /home/i2preseed/src \
   && rm -rf /home/i2preseed/pkg \
   && apk --no-cache --purge del build-dependendencies \
-  # add user/group
-  && addgroup -g 2000 i2preseed \
-  && adduser -u 2000 -G i2preseed -s /bin/sh -h "/home/i2preseed" -D i2preseed \
-  && chown -R i2preseed:i2preseed /home/i2preseed \
+  # set permissions
   && chmod 0700 /home/i2preseed/bin/i2p-tools \
   && chmod +x /home/i2preseed/entrypoint.sh
 
