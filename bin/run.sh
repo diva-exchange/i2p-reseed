@@ -17,4 +17,4 @@ docker run \
   -d \
   --mount type=volume,src=i2preseed,dst=/home/i2preseed/ \
   --name i2preseed \
-  divax/i2preseed:latest
+  divax/i2p-reseed:latest
