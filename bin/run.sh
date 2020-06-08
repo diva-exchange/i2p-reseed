@@ -15,6 +15,7 @@ docker volume create i2preseed
 docker run \
   -e "SIGNER=${SIGNER}" \
   -d \
+  -p 8443:8443 \
   --mount type=volume,src=i2preseed,dst=/home/i2preseed/ \
   --name i2preseed \
   divax/i2p-reseed:latest
