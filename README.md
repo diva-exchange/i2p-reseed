@@ -1,39 +1,43 @@
-I2P Reseed Tools
-==================
+I2P Reseed Server
+=================
 
-This tool provides a secure and efficient reseed server for the I2P network. There are several utility commands to create, sign, and validate SU3 files.
+Credits: work based on https://github.com/MDrollette/i2p-tools/
 
-## Installation
+## Changes & Important Notes
 
-If you have go installed you can download, build, and install this tool with `go get`
+This version of the I2P Reseed Server does neither implement any (bandwidth) throttling nor any user agent checks. This makes the server slightly lighter.
 
-```
-go get github.com/MDrollette/i2p-tools
-i2p-tools -h
-```
+As a consequence, the network infrastructure must protect this I2P Reseed Server from abuse (like DoS). A reverse proxy (like nginx), a load balancer and a suitable firewall infrastructure is therefore a necessity.
 
-## Usage
+Target user group: advanced users.
 
-### Locally behind a webserver (reverse proxy setup), preferred:
+## Get Started
 
-```
-i2p-tools reseed --signer=you@mail.i2p --netdb=/home/i2p/.i2p/netDb --port=8443 --ip=127.0.0.1 --trustProxy
-```
+Pass your signer ID to the container.
 
-### Without a webserver, standalone with TLS support
+Either the signer ID is already available within the persistent container volume, or it gets created.
 
-```
-i2p-tools reseed --signer=you@mail.i2p --netdb=/home/i2p/.i2p/netDb --tlsHost=your-domain.tld
-```
+`docker volume create i2preseed`
 
-If this is your first time running a reseed server (ie. you don't have any existing keys), 
-you can simply run the command and follow the prompts to create the appropriate keys, crl and certificates.
-Afterwards an HTTPS reseed server will start on the default port and generate 6 files in your current directory 
-(a TLS key, certificate and crl, and a su3-file signing key, certificate and crl).
+`docker run -e "SIGNER=abc@xyz.tld" -d --name i2preseed divax/i2preseed:latest`
 
-Get the source code here on github or a pre-build binary anonymously on 
 
-http://reseed.i2p/
-http://j7xszhsjy7orrnbdys7yykrssv5imkn4eid7n5ikcnxuhpaaw6cq.b32.i2p/
+## Building from Source
 
-also a short guide and complete tech info.
+Make sure you have "go" installed (like `apt-get install go`).
+
+### Go Code (i2p-tools)
+
+Set the GOPATH, which is the project root,
+
+`export GOPATH=${PWD}`
+
+then navigate to
+
+`cd ./src/i2p-tools` 
+
+and execute
+
+`go install`
+
+and all done. The binary is now available as `./bin/i2p-tools`.
