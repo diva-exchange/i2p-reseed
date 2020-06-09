@@ -24,13 +24,15 @@ SIGNER=${SIGNER:?Pass signer ID, like something@somedomain.tld}
 # wait for 10 minutes to have the router integrated
 sleep 600
 
+CONTAINER_IP=`ip route get 1 | awk '{print $NF;exit}'`
+
 while ( true )
 do
   /home/i2preseed/bin/i2p-tools reseed \
     --signer=${SIGNER} \
     --netdb=/home/i2pd/data/netDb \
     --port=8443 \
-    --ip=127.0.0.1 \
+    --ip=${CONTAINER_IP} \
     --trustProxy &
   # sleep for 48 hours, 60 * 60 * 48 secs
   sleep 172800
