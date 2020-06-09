@@ -19,7 +19,7 @@ Either the signer ID is already available within the persistent container volume
 
 `docker volume create i2preseed`
 
-`docker run -e "SIGNER=abc@xyz.tld" -d --name i2preseed divax/i2preseed:latest`
+`docker run -e "SIGNER=abc@xyz.tld" -d -p 8443:8443 --mount type=volume,src=i2preseed,dst=/home/i2preseed/ --name i2preseed divax/i2p-reseed:latest`
 
 
 ## Building from Source
