@@ -6,6 +6,10 @@
 # -e  Exit immediately if a simple command exits with a non-zero status
 set -e
 
+IP_CONTAINER=`ip route get 1 | awk '{ print $NF; exit; }'`
+
+sed 's/\$IP_CONTAINER/'"${IP_CONTAINER}"'/g' /home/i2pd/conf/i2pd.org.conf >/home/i2pd/conf/i2pd.conf
+
 # overwrite resolv.conf - forces the container to use stubby as a resolver
 cat </home/i2pd/network/resolv.conf >/etc/resolv.conf
 
@@ -23,8 +27,6 @@ SIGNER=${SIGNER:?Pass signer ID, like something@somedomain.tld}
 
 # wait for 10 minutes to have the router integrated
 sleep 600
-
-CONTAINER_IP=`ip route get 1 | awk '{print $NF;exit}'`
 
 while ( true )
 do
