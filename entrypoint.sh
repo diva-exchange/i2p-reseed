@@ -34,7 +34,7 @@ do
     --signer=${SIGNER} \
     --netdb=/home/i2pd/data/netDb \
     --port=8443 \
-    --ip=${CONTAINER_IP} \
+    --ip=${IP_CONTAINER} \
     --trustProxy &
   # sleep for 48 - 60 hours
   sleep $(( (RANDOM*60*60*12/32768) + (60*60*48) ))
