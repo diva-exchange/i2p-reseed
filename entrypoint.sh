@@ -34,8 +34,8 @@ do
     --port=8443 \
     --ip=${CONTAINER_IP} \
     --trustProxy &
-  # sleep for 48 hours, 60 * 60 * 48 secs
-  sleep 172800
+  # sleep for 48 - 60 hours
+  sleep $(( (RANDOM*60*60*12/32768) + (60*60*48) ))
   # terminate i2p-tools, to restart it again
   pkill i2p-tools
 done
