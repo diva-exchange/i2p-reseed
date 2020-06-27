@@ -37,7 +37,7 @@ Navigate to the i2p-reseed project folder (like `cd /tmp/i2p-reseed`)
 
 Execute `./bin/build.sh`. This will build i2p-tools (Go program) within the Alpine Linux docker container.
  
-### Building the Go Program ip-tools on Your Host
+### Building the Go Program i2p-tools on Your Host
 
 Make sure you have "go" installed (like `apt-get install go`). Navigate to the project home (where you have downloaded the code of i2p-reseed from codeberg, like `cd /tmp/i2p-reseed`).
 
