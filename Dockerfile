@@ -1,4 +1,4 @@
-FROM divax/i2p:i2p-tor-proxy
+FROM divax/i2p:latest
 
 LABEL author="Konrad Baechler <konrad@diva.exchange>" \
   maintainer="Konrad Baechler <konrad@diva.exchange>" \

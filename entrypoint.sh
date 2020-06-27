@@ -23,7 +23,8 @@ su i2pd -c "/home/i2pd/bin/i2pd --daemon --datadir=/home/i2pd/data --conf=/home/
 SIGNER=${SIGNER:?Pass signer ID, like something@somedomain.tld}
 
 # create the keys, if they don't exist
-[ -f /home/i2preseed/${SIGNER}.crt ] || /home/i2preseed/bin/i2p-tools keygen --signer=${SIGNER}
+[ -f /home/i2preseed/${SIGNER}.lock ] || /home/i2preseed/bin/i2p-tools keygen --signer=${SIGNER}
+touch /home/i2preseed/${SIGNER}.lock
 
 # wait for 10 minutes to have the router integrated
 sleep 600
