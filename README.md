@@ -35,7 +35,7 @@ Fetch the source code from codeberg, https://codeberg.org/diva.exchange/i2p-rese
 ### Building the Docker Image
 Navigate to the i2p-reseed project folder (like `cd /tmp/i2p-reseed`)
 
-Execute `./bin/build.sh`. This will build ip-tools (Go program) within the Alpine Linux docker container.
+Execute `./bin/build.sh`. This will build i2p-tools (Go program) within the Alpine Linux docker container.
  
 ### Building the Go Program ip-tools on Your Host
 
