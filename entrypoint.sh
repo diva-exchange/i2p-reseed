@@ -10,12 +10,6 @@ IP_CONTAINER=`ip route get 1 | awk '{ print $NF; exit; }'`
 
 sed 's/\$IP_CONTAINER/'"${IP_CONTAINER}"'/g' /home/i2pd/conf/i2pd.org.conf >/home/i2pd/conf/i2pd.conf
 
-# overwrite resolv.conf - forces the container to use stubby as a resolver
-cat </home/i2pd/network/resolv.conf >/etc/resolv.conf
-
-# DNS-over-TLS, -C path to config
-/usr/local/bin/stubby -l -C /home/i2pd/network/stubby.yml &
-
 # see configs: /conf/i2pd.conf
 su i2pd -c "/home/i2pd/bin/i2pd --daemon --datadir=/home/i2pd/data --conf=/home/i2pd/conf/i2pd.conf"
 
