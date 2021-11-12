@@ -6,7 +6,7 @@ LABEL author="Konrad Baechler <konrad@diva.exchange>" \
   description="Distributed digital value exchange upholding security, reliability and privacy" \
   url="https://reseed.diva.exchange"
 
-COPY entrypoint.sh /home/i2preseed/
+COPY entrypoint.sh /entrypoint-reseed.sh
 COPY src /home/i2preseed/src
 
 RUN apk --no-cache --virtual build-dependendencies add \
@@ -35,5 +35,5 @@ EXPOSE 8443
 
 VOLUME [ "/home/i2preseed/" ]
 WORKDIR "/home/i2preseed"
-ENTRYPOINT [ "/home/i2preseed/entrypoint.sh" ]
+ENTRYPOINT [ "/entrypoint-reseed.sh" ]
 
