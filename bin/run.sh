@@ -13,7 +13,6 @@ SIGNER=${1:?Pass signer ID, like something@somedomain.tld}
 
 docker volume create i2preseed
 docker run \
-  -e "BANDWIDTH=P" \
   -e "SIGNER=${SIGNER}" \
   -d \
   -p 8443:8443 \

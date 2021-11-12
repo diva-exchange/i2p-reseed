@@ -6,12 +6,11 @@
 # -e  Exit immediately if a simple command exits with a non-zero status
 set -e
 
+# start i2pd - in the context of the container this points to the top-level entrypoint, which belongs to i2pd
+BANDWIDTH=${BANDWIDTH:-P}
+BANDWIDTH=${BANDWIDTH} /entrypoint.sh
+
 IP_CONTAINER=`ip route get 1 | awk '{ print $NF; exit; }'`
-
-sed 's/\$IP_CONTAINER/'"${IP_CONTAINER}"'/g' /home/i2pd/conf/i2pd.org.conf >/home/i2pd/conf/i2pd.conf
-
-# see configs: /conf/i2pd.conf
-su i2pd -c "/home/i2pd/bin/i2pd --daemon --datadir=/home/i2pd/data --conf=/home/i2pd/conf/i2pd.conf"
 
 # mandatory signer id, like something@somedomain.tld
 SIGNER=${SIGNER:?Pass signer ID, like something@somedomain.tld}
