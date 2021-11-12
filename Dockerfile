@@ -11,9 +11,13 @@ COPY src /home/i2preseed/src
 
 RUN apk --no-cache --virtual build-dependendencies add \
     binutils \
+    git \
     go \
   && export GOPATH=/home/i2preseed/ \
   && cd /home/i2preseed/src/i2p-tools \
+  && go mod init \
+  && go mod vendor \
+  && go mod tidy \
   && go install \
   && strip /home/i2preseed/bin/i2p-tools \
   && cd /home/i2preseed/ \
