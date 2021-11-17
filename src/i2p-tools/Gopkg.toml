@@ -32,7 +32,3 @@
 [[constraint]]
   branch = "master"
   name = "github.com/justinas/alice"
-
-[[constraint]]
-  name = "gopkg.in/throttled/throttled.v2"
-  version = "2.0.3"

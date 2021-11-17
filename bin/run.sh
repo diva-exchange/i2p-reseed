@@ -11,8 +11,8 @@ cd ${PROJECT_PATH}/../
 # mandatory signer id, like something@somedomain.tld
 SIGNER=${1:?Pass signer ID, like something@somedomain.tld}
 
-docker volume create i2preseed
-docker run \
+sudo docker volume create i2preseed
+sudo docker run \
   -e "SIGNER=${SIGNER}" \
   -d \
   -p 8443:8443 \

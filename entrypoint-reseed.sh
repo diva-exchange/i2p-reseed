@@ -8,7 +8,7 @@ set -e
 
 # start i2pd - in the context of the container this points to the top-level entrypoint, which belongs to i2pd
 BANDWIDTH=${BANDWIDTH:-P}
-BANDWIDTH=${BANDWIDTH} /entrypoint.sh
+BANDWIDTH=${BANDWIDTH} /entrypoint.sh >/dev/null 2>&1 &
 
 IP_CONTAINER=`ip route get 1 | awk '{ print $NF; exit; }'`
 
@@ -19,7 +19,7 @@ SIGNER=${SIGNER:?Pass signer ID, like something@somedomain.tld}
 [ -f /home/i2preseed/${SIGNER}.lock ] || /home/i2preseed/bin/i2p-tools keygen --signer=${SIGNER}
 touch /home/i2preseed/${SIGNER}.lock
 
-# wait for 10 minutes to have the router integrated
+# wait for some minutes to have the router integrated
 sleep 600
 
 while ( true )
