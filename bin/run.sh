@@ -5,8 +5,9 @@
 
 set -e
 
-PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-cd ${PROJECT_PATH}/../
+PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"/../
+cd "${PROJECT_PATH}"
+PROJECT_PATH=$( pwd )
 
 # mandatory signer id, like something@somedomain.tld
 SIGNER=${1:?Pass signer ID, like something@somedomain.tld}
@@ -18,4 +19,4 @@ sudo docker run \
   -p 8443:8443 \
   --mount type=volume,src=i2preseed,dst=/home/i2preseed/ \
   --name i2preseed \
-  divax/i2p-reseed:latest
+  divax/i2p-reseed:current

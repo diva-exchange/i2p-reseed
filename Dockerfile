@@ -1,7 +1,7 @@
-FROM divax/i2p:latest
+FROM divax/i2p:current
 
-LABEL author="Konrad Baechler <konrad@diva.exchange>" \
-  maintainer="Konrad Baechler <konrad@diva.exchange>" \
+LABEL author="DIVA.EXCHANGE Association <contact@diva.exchange>" \
+  maintainer="DIVA.EXCHANGE Association <contact@diva.exchange>" \
   name="exchange.diva.reseed" \
   description="Distributed digital value exchange upholding security, reliability and privacy" \
   url="https://reseed.diva.exchange"
