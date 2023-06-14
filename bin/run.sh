@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Maintainer: konrad@diva.exchange
+# Author/Maintainer: DIVA.EXCHANGE Association, https://diva.exchange
 #
 
 set -e
