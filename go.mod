@@ -8,6 +8,3 @@ require (
 	github.com/justinas/alice v1.2.0
 	github.com/urfave/cli v1.22.15
 )
-
-//replace github.com/go-i2p/go-i2p => ../../../github.com/go-i2p/go-i2p
-
