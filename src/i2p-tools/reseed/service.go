@@ -16,12 +16,14 @@ import (
 	"time"
 
 	"github.com/diva-exchange/i2p-reseed/src/i2p-tools/su3"
+	"github.com/go-i2p/go-i2p/lib/common/router_info"
 )
 
 type routerInfo struct {
 	Name    string
 	ModTime time.Time
 	Data    []byte
+	RI      *router_info.RouterInfo
 }
 
 type Peer string
@@ -264,12 +266,24 @@ func (db *LocalNetDbImpl) RouterInfos() (routerInfos []routerInfo, err error) {
 		if age.Hours() > 192 {
 			continue
 		}
-
-		routerInfos = append(routerInfos, routerInfo{
-			Name:    file.Name(),
-			ModTime: file.ModTime(),
-			Data:    riBytes,
-		})
+		riStruct, remainder, err := router_info.NewRouterInfo(riBytes)
+		if err != nil {
+			log.Println("RouterInfo Parsing Error:", err)
+			log.Println("Leftover Data(for debugging):", remainder)
+			riStruct = nil
+			continue
+		}
+		// skip crappy routerInfos
+		if riStruct.Reachable() && riStruct.UnCongested() && riStruct.GoodVersion() {
+			routerInfos = append(routerInfos, routerInfo{
+				Name:    file.Name(),
+				ModTime: file.ModTime(),
+				Data:    riBytes,
+				RI:      riStruct,
+			})
+		} else {
+			log.Println("Skipped less-useful RouterInfo Capabilities:", riStruct.RouterCapabilities(), riStruct.RouterVersion())
+		}
 	}
 
 	return
