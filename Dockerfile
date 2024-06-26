@@ -1,4 +1,5 @@
 FROM divax/i2p:current
+ENV GO111MODULE=off
 
 LABEL author="DIVA.EXCHANGE Association <contact@diva.exchange>" \
   maintainer="DIVA.EXCHANGE Association <contact@diva.exchange>" \
@@ -15,7 +16,6 @@ RUN apk --no-cache --virtual build-dependendencies add \
     go \
   && export GOPATH=/home/i2preseed/ \
   && cd /home/i2preseed/src/i2p-tools \
-  && go mod init \
   && go install \
   && strip /home/i2preseed/bin/i2p-tools \
   && cd /home/i2preseed/ \

@@ -1,4 +1,4 @@
-module i2pgit.org/idk/reseed-tools/src/i2p-tools
+module i2pgit.org/idk/reseed-tools
 
 go 1.16
 

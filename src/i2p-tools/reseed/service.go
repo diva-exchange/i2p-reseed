@@ -273,7 +273,7 @@ func (db *LocalNetDbImpl) RouterInfos() (routerInfos []routerInfo, err error) {
 			riStruct = nil
 			continue
 		}
-		// skip crappy routerInfos
+		// skip low-quality
 		if riStruct.Reachable() && riStruct.UnCongested() && riStruct.GoodVersion() {
 			routerInfos = append(routerInfos, routerInfo{
 				Name:    file.Name(),
