@@ -3,7 +3,7 @@ I2P Reseed Server
 
 Credits: work based on https://github.com/MDrollette/i2p-tools/. Please see the README there to understand the roots of this project.
 
-Source Code: https://codeberg.org/diva.exchange/i2p-reseed
+Source Code: https://github.com/diva-exchange/i2p-reseed
 
 ## Changes & Important Notes
 
@@ -28,9 +28,9 @@ Either the signer ID is already available within the persistent container volume
 `docker run -e "SIGNER=abc@xyz.tld" -d -p 8443:8443 --mount type=volume,src=i2preseed,dst=/home/i2preseed/ --name i2preseed divax/i2p-reseed:latest`
 
 ## Building from Source
-Fetch the source code from codeberg, https://codeberg.org/diva.exchange/i2p-reseed, using git or just download it. Example:
+Fetch the source code from codeberg, https://github.com/diva-exchange/i2p-reseed, using git or just download it. Example:
 
-`cd /tmp/ && git clone https://codeberg.org/diva.exchange/i2p-reseed`
+`cd /tmp/ && git clone https://github.com/diva-exchange/i2p-reseed`
 
 ### Building the Docker Image
 Navigate to the i2p-reseed project folder (like `cd /tmp/i2p-reseed`)
