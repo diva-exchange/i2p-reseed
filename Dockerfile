@@ -8,21 +8,9 @@ LABEL author="DIVA.EXCHANGE Association <contact@diva.exchange>" \
   url="https://reseed.diva.exchange"
 
 COPY entrypoint-reseed.sh /home/i2preseed/entrypoint-reseed.sh
-COPY src /home/i2preseed/src
+COPY src/i2p-tools/bin/i2p-tools /home/i2preseed/bin/i2p-tools
 
-RUN apk --no-cache --virtual build-dependendencies add \
-    binutils \
-    git \
-    go \
-  && export GOPATH=/home/i2preseed/ \
-  && cd /home/i2preseed/src/i2p-tools \
-  && go install \
-  && strip /home/i2preseed/bin/i2p-tools \
-  && cd /home/i2preseed/ \
-  # remove build dependencies
-  && rm -rf /home/i2preseed/src \
-  && rm -rf /home/i2preseed/pkg \
-  && apk --no-cache --purge del build-dependendencies \
+RUN rm -rf /home/i2preseed/src \
   # set permissions
   && chmod 0700 /home/i2preseed/bin/i2p-tools \
   && chmod +x /home/i2preseed/entrypoint-reseed.sh

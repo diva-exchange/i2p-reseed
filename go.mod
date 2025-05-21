@@ -1,4 +1,4 @@
-module i2pgit.org/idk/reseed-tools
+module github.com/diva-exchange/i2p-reseed
 
 go 1.16
 

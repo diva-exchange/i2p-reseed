@@ -176,4 +176,4 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-/pkg
+/src/i2p-tools/pkg

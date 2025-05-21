@@ -28,7 +28,7 @@ Either the signer ID is already available within the persistent container volume
 `docker run -e "SIGNER=abc@xyz.tld" -d -p 8443:8443 --mount type=volume,src=i2preseed,dst=/home/i2preseed/ --name i2preseed divax/i2p-reseed:latest`
 
 ## Building from Source
-Fetch the source code from codeberg, https://github.com/diva-exchange/i2p-reseed, using git or just download it. Example:
+Fetch the source code from github, https://github.com/diva-exchange/i2p-reseed, using git or just download it. Example:
 
 `cd /tmp/ && git clone https://github.com/diva-exchange/i2p-reseed`
 
@@ -39,17 +39,17 @@ Execute `./bin/build.sh`. This will build i2p-tools (Go program) within the Alpi
  
 ### Building the Go Program i2p-tools on Your Host
 
-Make sure you have "go" installed (like `apt-get install go`). Navigate to the project home (where you have downloaded the code of i2p-reseed from codeberg, like `cd /tmp/i2p-reseed`).
+Make sure you have "go" installed (like `apt-get install apt-get install golang-go`). Navigate to the project home (where you have downloaded the code of i2p-reseed from github, like `cd $HOME/i2p-reseed/`).
+
+Then navigate to
+
+`cd ./src/i2p-tools` 
 
 Set the GOPATH, which is the project root,
 
 `export GOPATH=${PWD}`
 
-then navigate to
-
-`cd ./src/i2p-tools` 
-
-and execute
+Execute
 
 `go install`
 
