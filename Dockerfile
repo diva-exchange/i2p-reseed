@@ -1,5 +1,4 @@
 FROM divax/i2p:current
-ENV GO111MODULE=off
 
 LABEL author="DIVA.EXCHANGE Association <contact@diva.exchange>" \
   maintainer="DIVA.EXCHANGE Association <contact@diva.exchange>" \
@@ -10,11 +9,10 @@ LABEL author="DIVA.EXCHANGE Association <contact@diva.exchange>" \
 COPY entrypoint-reseed.sh /home/i2preseed/entrypoint-reseed.sh
 COPY src/i2p-tools/bin/i2p-tools /home/i2preseed/bin/i2p-tools
 
-RUN rm -rf /home/i2preseed/src \
-  # set permissions
-  && chmod 0700 /home/i2preseed/bin/i2p-tools \
+# install deps && set permissions
+RUN apk add libc6-compat \
+  && chmod +x /home/i2preseed/bin/i2p-tools \
   && chmod +x /home/i2preseed/entrypoint-reseed.sh
-
 
 # 8443 reseed server
 EXPOSE 8443
