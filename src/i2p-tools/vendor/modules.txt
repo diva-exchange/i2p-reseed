@@ -1,0 +1,21 @@
+# github.com/cpuguy83/go-md2man/v2 v2.0.4
+github.com/cpuguy83/go-md2man/v2/md2man
+# github.com/diva-exchange/i2p-reseed v0.0.0-00010101000000-000000000000 => .
+## explicit
+github.com/diva-exchange/i2p-reseed/src/i2p-tools/cmd
+github.com/diva-exchange/i2p-reseed/src/i2p-tools/reseed
+github.com/diva-exchange/i2p-reseed/src/i2p-tools/su3
+# github.com/felixge/httpsnoop v1.0.1
+github.com/felixge/httpsnoop
+# github.com/gorilla/handlers v1.5.1
+## explicit
+github.com/gorilla/handlers
+# github.com/justinas/alice v1.2.0
+## explicit
+github.com/justinas/alice
+# github.com/russross/blackfriday/v2 v2.1.0
+github.com/russross/blackfriday/v2
+# github.com/urfave/cli v1.22.15
+## explicit
+github.com/urfave/cli
+# github.com/diva-exchange/i2p-reseed => .

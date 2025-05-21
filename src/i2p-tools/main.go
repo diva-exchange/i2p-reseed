@@ -4,8 +4,8 @@ import (
 	"os"
 	"runtime"
 
-	"i2p-tools/cmd"
-	"github.com/codegangsta/cli"
+	"github.com/diva-exchange/i2p-reseed/src/i2p-tools/cmd"
+	"github.com/urfave/cli"
 )
 
 func main() {
