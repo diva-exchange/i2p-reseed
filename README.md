@@ -39,7 +39,7 @@ Execute `./bin/build.sh`. This will build i2p-tools (Go program) within the Alpi
  
 ### Building the Go Program i2p-tools on Your Host
 
-Make sure you have "go" installed (like `apt-get install apt-get install golang-go`). Navigate to the project home (where you have downloaded the code of i2p-reseed from github, like `cd $HOME/i2p-reseed/`).
+Make sure you have "go" installed (like `apt-get install golang-go`). Navigate to the project home (where you have downloaded the code of i2p-reseed from github, like `cd $HOME/i2p-reseed/`).
 
 Then navigate to
 
